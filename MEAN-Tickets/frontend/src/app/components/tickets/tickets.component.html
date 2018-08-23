@@ -1,0 +1,184 @@
+<div class="container">    
+<div class="row">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+              <form #ticketForm="ngForm" (ngSubmit)="addTicket(ticketForm)">
+                  <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="ticketService.selectedTicket._id">
+                  <div class="row">
+                      <div class="col-md-5">
+                        <input type="text" name="ticket" #ticket="ngModel" [(ngModel)]="ticketService.selectedTicket.ticket" placeholder="Ticket" required>
+                      </div>
+
+                      <div class="col-md-5 col-md-offset-1">
+                          <input type="text" name="rut" #rut="ngModel" [(ngModel)]="ticketService.selectedTicket.rut" placeholder="Rut" required>
+                      </div>
+
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-10">
+                            <textarea class="form-control" rows="3" name="descripcion" #descripcion="ngModel" [(ngModel)]="ticketService.selectedTicket.descripcion" placeholder="Descripción" required></textarea>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-5">
+                          <input type="text" name="fecha_creacion" #fecha_creacion="ngModel" [(ngModel)]="ticketService.selectedTicket.fecha_creacion" placeholder="Fecha de Creación" required>
+                        </div>
+  
+                        <div class="col-md-5 col-md-offset-1">
+                            <input type="text" name="fecha_cierre" #fecha_cierre="ngModel" [(ngModel)]="ticketService.selectedTicket.fecha_cierre" placeholder="Fecha de Cierre" required>
+                        </div>
+  
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-3">                            
+                              <input type="text" name="sla" #sla="ngModel" [(ngModel)]="ticketService.selectedTicket.sla" placeholder="SLA" required>
+                        </div>
+                        
+                        <div class="col-md-3">                            
+                              <input type="text" name="estado" #estado="ngModel" [(ngModel)]="ticketService.selectedTicket.estado" placeholder="Estado" required>
+                        </div>
+                        
+                        <div class="col-md-3">                            
+                              <input type="text" name="baja" #baja="ngModel" [(ngModel)]="ticketService.selectedTicket.baja" placeholder="Baja" required>                            
+                        </div>
+                    </div>
+                  
+
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-5">
+                          <input type="text" name="proceso" #proceso="ngModel" [(ngModel)]="ticketService.selectedTicket.proceso" placeholder="Proceso" required>
+                        </div>
+  
+                        <div class="col-md-5 col-md-offset-1">
+                            <input type="text" name="detalle" #detalle="ngModel" [(ngModel)]="ticketService.selectedTicket.detalle" placeholder="Detalle" required>
+                        </div>
+  
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-5">
+                          <input type="text" name="creador" #creador="ngModel" [(ngModel)]="ticketService.selectedTicket.creador" placeholder="Creador" required>
+                        </div>
+  
+                        <div class="col-md-5 col-md-offset-1">
+                            <input type="text" name="canal" #canal="ngModel" [(ngModel)]="ticketService.selectedTicket.canal" placeholder="Canal" required>
+                        </div>
+  
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                        <div class="col-md-10">
+                            <textarea class="form-control" rows="3" name="observacion" #observacion="ngModel" [(ngModel)]="ticketService.selectedTicket.observacion" placeholder="Observación"></textarea>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+                        
+                        <div class="col-md-10">
+                            <input type="text" name="analista" #analista="ngModel" [(ngModel)]="ticketService.selectedTicket.analista" placeholder="Analista">
+                        </div>
+  
+                    </div>
+
+                    <br>
+
+                    <div class="row">
+
+                        <div class="col-md-4">
+                            
+                        </div>
+ 
+                        <div class="col-md-2">
+                            <button class="btn btn-primary">Guardar</button>                                 
+                        </div>
+  
+                        <div class="col-md-2">                            
+                            <button class="btn btn-info" (click)= "resetForm(ticketForm)">Limpiar</button>
+                        </div>
+                    </div>
+
+                    <br>
+
+                    <div class="form-group">
+                        <label for="exampleInputFile">Importar datos del Excel:</label>
+                        <input type="file" id="exampleInputFile">                        
+                      </div>
+            </form>
+            </div>
+          </div>
+    </div>
+    <div class="col-md-3"></div>
+</div>
+    
+      <table class="table table-bordered">
+          <thead>
+            <tr>
+                <th>Ticket</th>
+                <th>Rut</th>
+                <th>Descripcion</th>
+                <th>Fecha Creacion</th>
+                <th>Fecha Cierre</th>
+                <th>SLA</th>
+                <th>Estado</th>
+                <th>Baja</th>
+                <th>Proceso</th>
+                <th>Detalle</th>
+                <th>Creador</th>
+                <th>Canal</th>
+                <th>Observacion</th>
+                <th>Analista</th>
+                <th>Operaciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let ticket of ticketService.tickets">
+                <td>{{ ticket.ticket }}</td>
+                <td>{{ ticket.rut }}</td>
+                <td>{{ ticket.descripcion }}</td>
+                <td>{{ ticket.fecha_creacion }}</td>
+                <td>{{ ticket.fecha_cierre }}</td>
+                <td>{{ ticket.sla }}</td>
+                <td>{{ ticket.estado }}</td>
+                <td>{{ ticket.baja }}</td>
+                <td>{{ ticket.proceso }}</td>
+                <td>{{ ticket.detalle }}</td>
+                <td>{{ ticket.creador }}</td>
+                <td>{{ ticket.canal }}</td>
+                <td>{{ ticket.observacion }}</td>
+                <td>{{ ticket.analista }}</td>
+                <td>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <a (click)="editTicket(ticket)"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+                        </div>
+                        <div class="col-md-2">
+                            <a (click)="deleteTicket(ticket._id)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a>
+                        </div>
+                     </div>
+                </td>
+            </tr>
+          </tbody>
+      </table>
+    
+
+  
+</div>
