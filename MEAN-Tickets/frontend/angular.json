@@ -28,6 +28,8 @@
 			  "src/styles/bootstrap3/css/bootstrap-theme.min.css"
             ],
             "scripts": [
+			  "src/xlsx/shim.min.js",
+			  "src/xlsx/xlsx.full.min.js",
 			  "src/styles/bootstrap3/js/bootstrap.min.js"
 			  ]
           },
@@ -81,6 +83,8 @@
 			  "src/styles/bootstrap3/css/bootstrap-theme.min.css"
             ],
             "scripts": [
+			  "src/xlsx/shim.min.js",
+			  "src/xlsx/xlsx.full.min.js",
 			  "src/styles/bootstrap3/js/bootstrap.min.js"
 			],
             "assets": [

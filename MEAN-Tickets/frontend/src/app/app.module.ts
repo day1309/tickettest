@@ -6,11 +6,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { TicketsComponent } from './components/tickets/tickets.component';
+import { SheetJSComponent } from './sheetjs.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    TicketsComponent
+    TicketsComponent,
+    SheetJSComponent
   ],
   imports: [
     BrowserModule,

@@ -41,7 +41,7 @@ export class TicketsComponent implements OnInit {
     this.ticketService.getTickets()
         .subscribe(res => {
           this.ticketService.tickets = res as Ticket[];
-          console.log(res);
+          //console.log(res);
         });
   }
 
@@ -53,7 +53,7 @@ export class TicketsComponent implements OnInit {
     if (confirm('Esta seguro?')) {
       this.ticketService.deleteTicket(_id)
         .subscribe(res => {
-          console.log(res);
+          // console.log(res);
           this.getTickets();
         });
     }
