@@ -63,6 +63,7 @@ export class TicketsComponent implements OnInit {
     if (form) {
       form.reset();
       this.ticketService.selectedTicket = new Ticket();
+      this.getTickets();
     }
   }
 
